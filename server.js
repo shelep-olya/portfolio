@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./.env" });
-// const expressLayout = require("express-ejs-layouts");
 const viewsRouter = require("./routes/viewsRoutes");
+const messagesRouter = require("./routes/messagesRoutes");
 
 const app = express();
 const PORT = 3000;
@@ -18,9 +18,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static("public"));
-// app.use(expressLayout);
 app.set("view engine", "ejs");
 app.use("/", viewsRouter);
+app.use("/", messagesRouter);
 
 app.listen(PORT, () => {
   console.log(`App is running on port ${PORT}`);
