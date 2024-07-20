@@ -82,23 +82,14 @@
     <section class="testimonials" id="projects">
         <div class="testimonials-box">
             <h2 class="heading">Projects</h2>
-
             <div class="wrapper">
-                <div class="testimonials-item">
-                    <img src="/images/project1.png" alt="project image">
-                    <h2>Natours</h2>
-                    <a href="https://github.com/shelep-olya/natours" target="_blank">This is an API for tour agency.</a>
-                </div>
-                <div class="testimonials-item">
-                    <img src="/images/project2.png" alt="project image">
-                    <h2>Blog Web Site</h2>
-                    <a href="https://github.com/shelep-olya/blog-web-site" target="_blank">This is a blog web-site with authorization & authentication.</a>
-                </div>
-                <div class="testimonials-item">
-                    <img src="/images/project3.png" alt="project image">
-                    <h2>Test Web Site</h2>
-                    <a href="https://github.com/shelep-olya/test-website" target="_blank">This is a test website where you can create your own tests and publish them.</a>
-                </div>
+                <% projects.forEach(project => { %>
+                    <div class="testimonials-item">
+                        <img src="/uploads/<%= project.image.data %>" alt="<%= project.name %>">
+                        <h2><%= project.name %></h2>
+                        <a href="<%= project.link %>" target="_blank"><%= project.description %></a>
+                    </div>
+                <% }); %>
             </div>
         </div>
     </section>
